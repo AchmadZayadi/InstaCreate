@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.instacreate.R;
 
@@ -18,8 +18,7 @@ public class AddPostFragment extends Fragment {
     private AddPostViewModel addPostViewModel;
     private TextView textView;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_add_post, container, false);
 
     }
@@ -35,7 +34,7 @@ public class AddPostFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (getActivity() != null){
-            addPostViewModel = ViewModelProviders.of(this).get(AddPostViewModel.class);
+            addPostViewModel = new ViewModelProvider(this).get(AddPostViewModel.class);
             observeViewModel();
         }
     }
